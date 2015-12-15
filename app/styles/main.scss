@@ -1,0 +1,446 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+// GOOGLE FONTS
+@import url(https://fonts.googleapis.com/css?family=Abril+Fatface:400,300,100,500);
+@import url(https://fonts.googleapis.com/css?family=Didact+Gothic:400,300,100,500);
+// END FONTS
+
+// FONTS VAR
+$font-flatface: 'Abril Fatface', cursive, sans-serif;
+$font-didact: 'Didact Gothic', sans-serif;
+// END FONT
+
+
+
+    /*------------------
+      SETUP-REUSABLE COMPONENTS
+    --------------------*/
+$grid-gutter-width: 50px !default;
+$border-radius-base:  4px !default;
+$padding-base-vertical: 14px !default;
+
+$primary: #222 !default;
+$lighter: #e9e9e9;
+$body-color: #222;
+$selection-color: #222;
+$overlay-color: #22db9f;
+$header-color: #F9FAE8;
+$white-color: #fafafa;
+
+$input-border-focus:  $primary !default;
+$form-group-margin-bottom:       30px !default;
+
+$navbar-height:                  80px !default;
+
+/*------------------MIXINS--------------------*/
+@mixin flex() {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+@mixin transition($transition) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    -ms-transition: $transition;
+    transition:         $transition;
+}
+@mixin inline-block() {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+}
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+  /*--------------END COMPONENT--------------*/
+
+
+  /*------------------
+      BODY / MAIN STYLE
+  --------------------*/
+
+body {
+  	font-family: $font-didact;
+  	font-weight: 300;
+  	font-size: 15px;
+  	line-height: 26px;
+  	color: $body-color;
+    background:  $body-color;
+}
+
+a {
+	@include transition(.5s);
+	 &:hover, &:active, &:focus {
+		   outline: none;
+  }
+}
+p {
+  	margin-bottom: 1em;
+    font-family: $font-didact;
+    font-size: 24px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  	color: $header-color;
+  	font-family: $font-flatface;
+  	margin-top: 0;
+  	margin-bottom: 20px;
+  	font-weight: 300;
+}
+::-webkit-selection {
+    color: $body-color;
+    background: $selection-color;
+}
+
+::-moz-selection {
+    color: $body-color;
+    background: $selection-color;
+}
+
+::selection {
+    color: $body-color;
+    background: $selection-color;
+}
+/*------------------END BODY-STYLE--------------------*/
+
+/*------------------
+HEADER
+--------------------*/
+#fh5co-header {
+	float: left;
+	width: 100%;
+	position:fixed;
+
+	z-index: 99;
+	padding-bottom: .5em;
+	top: 0;
+	> .navbar {
+		@include border-radius(0px);
+
+		padding-left: 40px;
+		padding-right: 40px;
+		margin-bottom: 0;
+		background:rgba(34, 34, 34, 0.12);
+		font-size: 13px;
+		border: transparent;
+		@media screen and (max-width: $screen-xs) {
+			padding-left: 0px;
+			padding-right:  0px;
+		}
+	}
+	.navbar-brand {
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		font-size: 3em;
+		font-weight: 400;
+		margin-left: 0px;
+		display: block;
+		padding-bottom: 1em;
+		font-family: $font-flatface;
+		color: $overlay-color;
+	}
+  .brand-color {
+  	color: white;
+  }
+}
+/*------------------END-HEADER--------------------*/
+
+/*------------------
+  MAIN-CONTENT
+--------------------*/
+#fh5co-main {
+	// padding-bottom: 5em;
+	clear: both;
+	padding-top: 3em;
+  background: #222;
+}
+
+/*------------------ CONTENT --------------------*/
+#fh5co-content {
+	padding: 7em 0;
+	@media screen and (max-width: $screen-sm) {
+		padding: 0 0 4em 0;
+	}
+}
+
+/*------------------ INTRO --------------------*/
+.fh5co-intro {
+	padding: 12em 0;
+  height: 100vh;
+  text-align: left;
+  width: 100%;
+  background: #222;
+  top: 0;
+  position: fixed;
+  z-index: -1;
+
+	@media screen and (max-width: $screen-sm) {
+		padding: 4em 0;
+	}
+	.intro-lead {
+		font-size:  9rem;
+		line-height: 100px;
+	}
+  .intro-dot{
+    color: #22db9f;
+  }
+}
+.section-lead {
+	font-size: 40px;
+	line-height: 50px;
+	margin-bottom: 1em;
+	font-family: $font-flatface;
+}
+
+/*------------------ PORTFILIO --------------------*/
+#fh5co-portfolio {
+	margin-bottom: 7em;
+	padding-left: 4em;
+	padding-right: 4em;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	background: #222;
+	float: left;
+	width: 100%;
+	@media screen and (max-width: $screen-sm) {
+		margin-bottom: 4em;
+	}
+	@media screen and (max-width: $screen-lg) {
+		padding-left: 0em;
+		padding-right: 0em;
+	}
+	.fh5co-portfolio-item {
+		float: left;
+		width: 100%;
+		position: relative;
+
+		@include flex();
+		@media screen and (max-width: $screen-sm) {
+			display: block;
+		}
+		.fh5co-portfolio-description,
+		.fh5co-portfolio-figure {
+			width: 50%;
+			@media screen and (max-width: $screen-sm) {
+				display: block;
+				width: 100%;
+			}
+		}
+		.fh5co-portfolio-figure {
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
+			overflow: hidden;
+			@media screen and (max-width: $screen-sm) {
+				height: 400px;
+			}
+		}
+		.fh5co-portfolio-description {
+			background: #f9fae8;
+			padding: 3em;
+			font-size: 20px;
+			line-height: 36px;
+      margin: 0 auto;
+      width: 100%;
+			@media screen and (max-width: $screen-lg) {
+				padding: 2em;
+			}
+			@media screen and (max-width: $screen-sm) {
+				padding: 1em;
+        display: block;
+        width: 100%;
+			}
+			h2 {
+				font-family: $font-flatface;
+				font-size: 50px;
+				line-height: 34px;
+				font-weight: 300;
+        color: #22db9f;
+        text-align: center;
+			}
+		}
+		&.fh5co-img-right {
+			.fh5co-portfolio-figure {
+				position: relative;
+				right: 0px;
+				top: 0;
+				bottom: 0;
+				@media screen and (max-width: $screen-sm) {
+					position: relative;
+					top: auto;
+					bototm: auto;
+					height: 400px;
+				}
+			}
+		}
+	}
+}
+/*------------------END MAIN-CONTENT--------------------*/
+
+/*------------------
+  FOOTER
+--------------------*/
+#fh5co-footer {
+	padding: 1em 0;
+	line-height: 1.5;
+  p {
+    font-size: 18px;
+    color: $white-color;
+  }
+}
+/*------- END FOOTER -------*/
+
+
+  /*------------------
+    Helper Classes
+  --------------------*/
+/*------------- Spacer ------------*/
+.fh5co-spacer {
+	clear: both;
+	position: relative;
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+.fh5co-spacer-xlg {
+	height: 150px;
+	@media screen and (max-width: $screen-sm) {
+		height: 70px;
+	}
+
+}
+.fh5co-spacer-lg {
+	height: 100px;
+	@media screen and (max-width: $screen-sm) {
+		height: 50px;
+	}
+}
+.fh5co-spacer-md {
+	height: 80px;
+	@media screen and (max-width: $screen-sm) {
+		height: 30px;
+	}
+}
+.fh5co-spacer-sm {
+	height: 50px;
+	@media screen and (max-width: $screen-sm) {
+		height: 20px;
+	}
+}
+.fh5co-spacer-xs {
+	height: 30px;
+	@media screen and (max-width: $screen-sm) {
+		height: 20px;
+	}
+}
+.fh5co-spacer-xxs {
+	height: 20px;
+}
+.col-xxs-12 {
+	@media screen and (max-width: 480px) {
+		float: none;
+		width: 100%;
+	}
+}
+.fh5co-mb30 {
+	margin-bottom: 30px;
+}
+.fh5co-row-padded {
+	padding: 50px 0;
+}
+/*---------- END SPACER ---------*/
+
+/*------------------
+  Image Alignment
+--------------------*/
+
+img {
+	&.fh5co-align-right {
+		float:right;
+		margin:0 0 .5em 1em;
+		@media screen and (max-width: $screen-xs) {
+			width: 100%;
+			margin: 0 0 .5em 0;
+		}
+	}
+	&.fh5co-align-left {
+		float:left;
+		margin:0 1em .5em 0;
+		@media screen and (max-width: $screen-xs) {
+			width: 100%;
+			margin: 0 0 .5em 0;
+		}
+	}
+	&.fh5co-align-center {
+		display: block;
+		margin-left: auto;
+		margin-right: auto
+	}
+}
+a > img {
+	&.fh5co-align-right {
+		float:right;
+		margin:0 0 .5em 1em;
+		@media screen and (max-width: $screen-xs) {
+			width: 100%;
+			margin: 0 0 .5em 0;
+		}
+	}
+	&.fh5co-align-left {
+		float: left;
+		margin: 0 1em .5em 0;
+		@media screen and (max-width: $screen-xs) {
+			width: 100%;
+			margin: 0 0 .5em 0;
+		}
+	}
+	&.fh5co-align-center {
+		display: block;
+		margin-left: auto;
+		margin-right: auto
+	}
+}
+/*------------------END IMAGE-ALIGNMENT--------------------*/
+
+/*------------------PARALLAX EFFECT-WRAPPER--------------------*/
+.wrapper-parallax {
+	margin-top: 70%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+/*------------------END-PARALLAX--------------------*/
+
+/*------------------DIAMOND--------------------*/
+#pageHr {
+  position: relative;
+  height: 5px;
+  display: block;
+  right: 0px;
+  left: 0px;
+  top: 90%;
+  z-index: 1;
+}
+#pageHr > i {
+  margin: -25px;
+  border: 9px solid #222;
+  height: 40px;
+  width: 40px;
+  background: #48CFAD;
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
